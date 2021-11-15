@@ -1,0 +1,414 @@
+/**
+ *
+ */
+
+.prose {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.prose blockquote,
+.prose hr,
+.prose p {
+  margin-top: 1.75rem;
+  margin-bottom: 0;
+}
+
+/* --- Inline elements ------------------------------------------------------ */
+
+/* Links. */
+.prose a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: var(--link-hover-color);
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+.prose hr {
+  border-color: var(--hr-color);
+  border-top-width: 1px;
+  margin-bottom: -1px;
+}
+
+.prose mark {
+  color: var(--mark-color);
+  background-color: var(--mark-bg-color);
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  border-radius: 0.25em;
+}
+
+/* --- Block elements ------------------------------------------------------- */
+
+/* Blockquote. */
+.prose blockquote {
+  border-left-width: 0.5rem;
+  border-left-color: var(--blockquote-border-color);
+  padding-left: 1em;
+}
+
+/* --- Headings ------------------------------------------------------------- */
+.prose h1 {
+  color: var(--heading-color);
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.5;
+
+  /* Rhythm 3.5 - font-size 2 x lh 1.5 + 1.25 from next element = 1.375 */
+  margin-top: 1.375rem;
+}
+
+.prose h1 + * {
+  margin-top: 0.5rem;
+}
+
+.prose h2 {
+  color: var(--heading-color);
+  font-weight: 600;
+  font-size: 1.75rem;
+  line-height: 1.5;
+
+  /* Rhythm 3.5 - font-size 1.75 x lh 1.5 + 1.25 from next element = 2.125 */
+  margin-top: 2.125rem;
+}
+
+.prose h2 + * {
+  margin-top: 0.5rem;
+}
+
+/* Reduce by 1.25 if it follows another heading. */
+.prose h1 + h2,
+.prose h2 + h2,
+.prose h3 + h2 {
+  margin-top: 0.875rem;
+}
+
+.prose h3 {
+  color: var(--heading-color);
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.5;
+
+  /* Rhythm 3.5 - font-size 1.5 x lh 1.5 + 1.25 from next element = 2.5 */
+  margin-top: 2.5rem;
+}
+
+.prose h3 + * {
+  margin-top: 0.5rem;
+}
+
+/* Reduce by 1.25 if it follows another heading. */
+.prose h2 + h3,
+.prose h3 + h3,
+.prose h4 + h3 {
+  margin-top: 1.25rem;
+}
+
+.prose h4 {
+  color: var(--heading-color);
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.5;
+
+  /* Rhythm 3.5 - font-size 1.25 x lh 1.5 + 1.25 from next element = 2.875 */
+  margin-top: 2.875rem;
+}
+
+.prose h4 + * {
+  margin-top: 0.5rem;
+}
+
+/* Reduce by 1.25 if it follows another heading. */
+.prose h3 + h4,
+.prose h4 + h4,
+.prose h5 + h4 {
+  margin-top: 1.625rem;
+}
+
+.prose h5 {
+  color: var(--heading-color);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  /* Rhythm 3.5 - font-size 1 x lh 1.5 + 1.25 from next element = 3.25 */
+  margin-top: 3.25rem;
+}
+
+.prose h5 + * {
+  margin-top: 0.5rem;
+}
+
+/* Reduce by 1.25 + 1.75 if it follows another heading. */
+.prose h4 + h5,
+.prose h5 + h5,
+.prose h6 + h5 {
+  margin-top: 0.25rem;
+}
+
+.prose h6 {
+  color: var(--heading-color);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  /* Rhythm 3.5 - font-size 1 x lh 1.5 + 1.25 from next element = 3.25 */
+
+  /* margin-top: 3.25rem; */
+  margin-top: 1.5rem;
+}
+
+.prose h6 + * {
+  margin-top: 0.5rem;
+}
+
+/* Reduce by 1.25 if it follows another heading. */
+.prose h5 + h6,
+.prose h6 + h6 {
+  margin-top: 0.25rem;
+}
+
+/* --- List styles. ---------------------------------------------------------- */
+.prose dl > dt {
+  font-weight: 600;
+}
+
+.prose dl > dd {
+  margin-left: 2em;
+}
+
+.prose ol[type="A"] {
+  --list-counter-style: upper-alpha;
+}
+
+.prose ol[type="a"] {
+  --list-counter-style: lower-alpha;
+}
+
+/* These were in Tailwind Prose plugin, what do they do?
+.prose ol[type="A" s] {
+  --list-counter-style: upper-alpha;
+}
+
+.prose ol[type="a" s] {
+  --list-counter-style: lower-alpha;
+}
+
+.prose ol[type="I" s] {
+  --list-counter-style: upper-roman;
+}
+
+.prose ol[type="i" s] {
+  --list-counter-style: lower-roman;
+}
+*/
+
+.prose ol[type="I"] {
+  --list-counter-style: upper-roman;
+}
+
+.prose ol[type="i"] {
+  --list-counter-style: lower-roman;
+}
+
+.prose ol[type="1"] {
+  --list-counter-style: decimal;
+}
+
+.prose ol > li {
+  position: relative;
+  padding-left: 1.75em;
+}
+
+.prose ol > li::before {
+  content: counter(list-item, var(--list-counter-style, decimal)) ".";
+  position: absolute;
+  left: 0;
+}
+
+.prose ul > li {
+  position: relative;
+  padding-left: 2.5em;
+}
+
+.prose ul > li::before {
+  content: "";
+  position: absolute;
+  background-color: var(--ul-marker-color);
+  border-radius: 50%;
+  width: 0.375em;
+  height: 0.375em;
+  top: 0.75em;
+  left: 1.5em;
+}
+
+.prose figure figcaption {
+  color: var(--figcaption-color);
+  line-height: 1.5;
+  margin-top: 0.75rem;
+}
+
+.prose code {
+  color: var(--code-color);
+  background-color: var(--code-bg-color);
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  border-radius: 0.25em;
+}
+
+/* .prose a code {} */
+
+.prose pre {
+  overflow-x: auto;
+  line-height: 1.25em;
+  padding: 0.25em;
+}
+
+.prose pre code {
+  display: block;
+}
+
+.prose pre code::before,
+.prose pre code::after {
+  content: none;
+}
+
+.prose img {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.prose video {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.prose figure {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.prose figure > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* --- Lists ---------------------------------------------------------------- */
+.prose > ul > li p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.prose > ul > li > *:first-child {
+  margin-top: 1.25em;
+}
+
+.prose > ul > li > *:last-child {
+  margin-bottom: 1.25em;
+}
+
+.prose > ol > li > *:first-child {
+  margin-top: 1.25em;
+}
+
+.prose > ol > li > *:last-child {
+  margin-bottom: 1.25em;
+}
+
+.prose ul ul,
+.prose ul ol,
+.prose ol ul,
+.prose ol ol {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+/* --- Tables --------------------------------------------------------------- */
+.prose table {
+  color: inherit;
+  width: 100%;
+  table-layout: auto;
+  text-align: left;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 0.875em;
+  line-height: 1.75;
+}
+
+.prose thead {
+  font-weight: 600;
+  border-bottom-width: 1px;
+  border-bottom-color: var(--table-border-color);
+}
+
+.prose thead th {
+  vertical-align: bottom;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+}
+
+.prose tbody tr {
+  border-bottom-width: 1px;
+  border-bottom-color: var(--table-row-border-color);
+}
+
+.prose tbody tr:last-child {
+  border-bottom-width: 0;
+}
+
+.prose tbody td {
+  vertical-align: top;
+  padding: 0.5em;
+}
+
+.prose thead th:first-child {
+  padding-left: 0;
+}
+
+.prose thead th:last-child {
+  padding-right: 0;
+}
+
+.prose tbody td:first-child {
+  padding-left: 0;
+}
+
+.prose tbody td:last-child {
+  padding-right: 0;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose > :last-child {
+  margin-bottom: 0;
+}
+
+/* Inputs - just enough to get usable. */
+.prose input,
+.prose button,
+.prose textarea {
+  padding: 0.25rem 0.5rem;
+  color: var(--input-color);
+  background-color: var(--input-bg-color);
+  line-height: 1.5;
+  border: 1px solid var(--input-border-color);
+}
+
+.prose input::placeholder,
+.prose textarea::placeholder {
+  font-style: italic;
+  color: var(--input-placeholder-color);
+}
+
+.prose button:hover {
+  background-color: var(--button-hover-bg-color);
+}
