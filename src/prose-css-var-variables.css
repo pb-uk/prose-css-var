@@ -1,0 +1,38 @@
+/*! prose-css-var variables
+ *  https://github.com/pb-uk/prose-css-var#readme
+ *  Free software see https://unlicense.org.
+ */
+
+ .prose {
+  /* Main elements. */
+  --heading-color: currentColor;
+  --link-color: #55b;
+  --link-hover-color: #33f;
+  --code-color: #666;
+  --code-bg-color: #ddd;
+  --mark-color: currentColor;
+  --mark-bg-color: greenyellow;
+  --table-border-color: currentColor;
+  --table-row-border-color: #777;
+  --blockquote-border-color: #777;
+  --hr-color: #777;
+  --ul-marker-color: #999;
+  --figcaption-color: currentColor;
+
+  /* Inputs */
+  --input-color: currentColor;
+  --input-border-color: currentColor;
+  --input-bg-color: transparent;
+  --input-placeholder-color: #777;
+  --button-hover-bg-color: #777;
+}
+
+/* Dark theme. */
+.dark .prose {
+  --link-color: #bbf;
+  --link-hover-color: #ddf;
+  --code-color: #888;
+  --code-bg-color: #222;
+  --mark-bg-color: darkslateblue;
+  --ul-marker-color: #555;
+}
