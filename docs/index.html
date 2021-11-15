@@ -1,20 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Unresetting ‘hard’ CSS resets</title>
-    <link href="../lib/reset.css" rel="stylesheet" />
-    <link href="../src/prose-css-var-variables.css" rel="stylesheet" />
-    <link href="../src/prose-css-var-styles.css" rel="stylesheet" />
-    <style id="font-family-css">
-      html {
-        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    <!-- prettier-ignore-start -->
+    <style>
+      /* Hard reset consisting of
+       *   - Meyerweb 'hard' reset
+       *   - box-sizing: border-box
+       *   - sans-serif and monospace system font stacks.
+       */
+
+      /* http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+      */
+
+      html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+      blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+      ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+      dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+      tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+      figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+      time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
       }
+      /* HTML5 display-role reset for older browsers */
+      article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav,
+      section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ol, ul {
+        list-style: none;
+      }
+      blockquote, q {
+        quotes: none;
+      }
+      blockquote:before, blockquote:after, q:before, q:after {
+        content: '';
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      /* Use a better box model. */
+      *, ::before, ::after {
+        box-sizing: border-box;
+      }
+
+      /* Sans-serif font stack. */
+      html {
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+          'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+          'Noto Color Emoji';
+      }
+
+      /* Monospace font stack. */
       pre, code, kbd, var, samp {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          'Liberation Mono', 'Courier New', monospace;
       }
     </style>
+    <!-- prettier-ignore-end -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/@pbuk/prose-css-var/src/prose-css-var-variables.css"
+      rel="stylesheet"
+      />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@pbuk/prose-css-var/src/prose-css-var-styles.css"
+      rel="stylesheet"
+      />
     <style>
       html,
       .light {
@@ -29,16 +97,23 @@
     </style>
   </head>
   <body style="padding: 0 1rem">
-    <header class="prose" style="padding: 1rem 0; border-bottom: 1px solid #777">
+    <header
+      class="prose"
+      style="padding: 1rem 0; border-bottom: 1px solid #777"
+    >
       <a href="index.html">Home</a>
       <button
         style="border: 1px solid #777; padding: 0.25em 0.5em"
         onclick="toggleDark()"
-        >Toggle dark mode</button>
+      >
+        Toggle dark mode
+      </button>
       <button
         style="border: 1px solid #777; padding: 0.25em 0.5em"
         onclick="loadContent()"
-        >Load test content</button>
+      >
+        Load test content
+      </button>
       Width: <span id="show-width"></span>px
     </header>
 
@@ -46,50 +121,68 @@
       <h1>Unresetting ‘hard’ CSS resets</h1>
       <p>
         The modern trend is towards soft resets like
-        <a target="_blank" href=https://necolas.github.io/normalize.css/">normalize-css</a>
+        <a target="_blank" href="https://necolas.github.io/normalize.css/"
+          >normalize-css</a
+        >
         and
-        <a target="_blank" href=https://github.com/sindresorhus/modern-normalize#readme">modern-normalize</a>,
-        however ‘hard’ resets like the original
-        <a target="_blank" href="https://meyerweb.com/eric/tools/css/reset/">Meyerweb reset</a>
-        still have their uses, and in particular
-        the surge in popularity of
+        <a
+          target="_blank"
+          href="https://github.com/sindresorhus/modern-normalize#readme"
+          >modern-normalize</a
+        >, however ‘hard’ resets like the original
+        <a target="_blank" href="https://meyerweb.com/eric/tools/css/reset/"
+          >Meyerweb reset</a
+        >
+        still have their uses, and in particular the surge in popularity of
         <a target="_blank" href="https://tailwindcss.com">Tailwind CSS</a>
         has increased their use (if you are using Tailwind then you should read
         <a href="tailwind-2.html">this page</a>
         instead).
       </p>
       <p>
-        The problem with ‘hard’ resets is that they remove things like margins from paragraphs,
-        markers from lists, and even font sizes from headings, leaving your content almost
-        impossible to read.  <code>prose-css-var</code> fixes this when you wrap your text in a tag
-        with the <code>.prose</code> css class. Also because <code>prose-css-var</code> uses css
-        variables:
+        The problem with ‘hard’ resets is that they remove things like margins
+        from paragraphs, markers from lists, and even font sizes from headings,
+        leaving your content almost impossible to read.
+        <code>prose-css-var</code> fixes this when you wrap your text in a tag
+        with the <code>.prose</code> css class. Also because
+        <code>prose-css-var</code> uses css variables:
       </p>
       <ul>
         <li>
-          It <a target="_blank" href="https://caniuse.com/css-variables">does not work</a> on IE11
+          It
+          <a target="_blank" href="https://caniuse.com/css-variables"
+            >does not work</a
+          >
+          on IE11
         </li>
         <li>
           It is easy to override colours for links, blockquote borders etc
         </li>
         <li>
-          You get <span class="dark" style="padding: 0 0.25em"> dark mode</span> and other theming
-          abilities for free!
+          You get
+          <span class="dark" style="padding: 0 0.25em"> dark mode</span> and
+          other theming abilities for free!
         </li>
       </ul>
       <p>
-        Some common html elements are shown below, use the button at the top of the page to load
-        <a target="_blank" href="https://github.com/cbracco/html5-test-page">cbracco's html5 test page</a>
-        to show more.  Styling choices are fairly neutral but note that heading and paragraph elements
-        (but not yet list elements) use a consistent vertical rhythm of 1.75rem.  Note that
+        Some common html elements are shown below, use the button at the top of
+        the page to load
+        <a target="_blank" href="https://github.com/cbracco/html5-test-page"
+          >cbracco's html5 test page</a
+        >
+        to show more. Styling choices are fairly neutral but note that heading
+        and paragraph elements (but not yet list elements) use a consistent
+        vertical rhythm of 1.75rem. Note that
         <code>prose-css-var</code>
         does not include a font stack, you need to bring your own.
       </p>
       <p>
-        Text with <em>em</em>, <strong>strong</strong>, <code>code</code>, <kbd>kbd</kbd> and
-        <mark>mark</mark>.
-        A <a href="#!">link with <em>em</em>, <strong>strong</strong>, <code>code</code>,
-          <kbd>kbd</kbd> and <mark>mark</mark></a>.
+        Text with <em>em</em>, <strong>strong</strong>, <code>code</code>,
+        <kbd>kbd</kbd> and <mark>mark</mark>. A
+        <a href="#!"
+          >link with <em>em</em>, <strong>strong</strong>, <code>code</code>,
+          <kbd>kbd</kbd> and <mark>mark</mark></a
+        >.
       </p>
       <h2><code>&lt;code></code> in a heading</h2>
       <p><code>&lt;code></code> in normal text.</p>
@@ -103,7 +196,9 @@
 
     <footer style="margin-top: 1rem; border-top: 1px solid #777" class="prose">
       <small>
-        <a target="_blank " href="https://github.com/pb-uk/prose-css-var">prose-css-var</a>
+        <a target="_blank " href="https://github.com/pb-uk/prose-css-var"
+          >prose-css-var</a
+        >
         is free software released into the public domain - see
         <a target="_blank " href="https://unlicense.org/">unlicense.org</a>.
       </small>
@@ -112,22 +207,22 @@
     <script>
       const loadContent = () => {
         // Load content from cbracco's test page.
-        fetch("https://cdn.jsdelivr.net/npm/html5-test-page")
+        fetch('https://cdn.jsdelivr.net/npm/html5-test-page')
           .then((response) => response.text())
           .then((html) => {
-            document.querySelector("#content").innerHTML =
+            document.querySelector('#content').innerHTML =
               html.match(/<body>(.*)<\/body>/s)[1];
           });
       };
 
       // Dark mode toggle.
       var toggleDark = () => {
-        document.documentElement.classList.toggle("dark");
+        document.documentElement.classList.toggle('dark');
       };
 
       // Document width utility
       const showWidth = () => {
-        document.querySelector("#show-width").innerHTML =
+        document.querySelector('#show-width').innerHTML =
           document.documentElement.clientWidth;
       };
 

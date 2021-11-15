@@ -1,15 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Simpler prose styles for Tailwind CSS v2</title>
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@^2/dist/base.min.css"
       rel="stylesheet"
     />
-    <link href="../src/prose-css-var-variables.css" rel="stylesheet" />
-    <link href="../src/prose-css-var-styles.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@pbuk/prose-css-var/src/prose-css-var-variables.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@pbuk/prose-css-var/src/prose-css-var-styles.css"
+      rel="stylesheet"
+    />
     <style>
       html,
       .light {
@@ -24,16 +30,23 @@
     </style>
   </head>
   <body style="padding: 0 1rem">
-    <header class="prose" style="padding: 1rem 0; border-bottom: 1px solid #777">
+    <header
+      class="prose"
+      style="padding: 1rem 0; border-bottom: 1px solid #777"
+    >
       <a href="index.html">Home</a>
       <button
         style="border: 1px solid #777; padding: 0.25em 0.5em"
         onclick="toggleDark()"
-        >Toggle dark mode</button>
+      >
+        Toggle dark mode
+      </button>
       <button
         style="border: 1px solid #777; padding: 0.25em 0.5em"
         onclick="loadContent()"
-        >Load test content</button>
+      >
+        Load test content
+      </button>
       Width: <span id="show-width"></span>px
     </header>
 
@@ -41,50 +54,68 @@
       <h1>Simpler prose styles for Tailwind CSS</h1>
       <p>
         The modern trend is towards soft resets like
-        <a target="_blank" href=https://necolas.github.io/normalize.css/">normalize-css</a>
+        <a target="_blank" href="https://necolas.github.io/normalize.css/"
+          >normalize-css</a
+        >
         and
-        <a target="_blank" href=https://github.com/sindresorhus/modern-normalize#readme">modern-normalize</a>,
-        however ‘hard’ resets like the original
-        <a target="_blank" href="https://meyerweb.com/eric/tools/css/reset/">Meyerweb reset</a>
-        still have their uses, and in particular
-        the surge in popularity of
+        <a
+          target="_blank"
+          href="https://github.com/sindresorhus/modern-normalize#readme"
+          >modern-normalize</a
+        >, however ‘hard’ resets like the original
+        <a target="_blank" href="https://meyerweb.com/eric/tools/css/reset/"
+          >Meyerweb reset</a
+        >
+        still have their uses, and in particular the surge in popularity of
         <a target="_blank" href="https://tailwindcss.com">Tailwind CSS</a>
-        has increased their use.  This page is concerned with Tailwind, if you are using another
-        reset you should read
+        has increased their use. This page is concerned with Tailwind, if you
+        are using another reset you should read
         <a href="index.html">this page</a>
         instead.
       </p>
 
       <p>
-        Tailwind performs a ‘hard’ reset which removes things like margins from paragraphs,
-        markers from lists, and even font sizes from headings, leaving your content almost
-        impossible to read.  <code>prose-css-var</code> fixes this when you wrap your text in a tag
-        with the <code>.prose</code> css class. Also because <code>prose-css-var</code> uses css
-        variables:
+        Tailwind performs a ‘hard’ reset which removes things like margins from
+        paragraphs, markers from lists, and even font sizes from headings,
+        leaving your content almost impossible to read.
+        <code>prose-css-var</code> fixes this when you wrap your text in a tag
+        with the <code>.prose</code> css class. Also because
+        <code>prose-css-var</code> uses css variables:
       </p>
       <ul>
         <li>
-          It <a target="_blank" href="https://caniuse.com/css-variables">does not work</a> on IE11
+          It
+          <a target="_blank" href="https://caniuse.com/css-variables"
+            >does not work</a
+          >
+          on IE11
         </li>
         <li>
           It is easy to override colours for links, blockquote borders etc
         </li>
         <li>
-          You get <span class="dark" style="padding: 0 0.25em"> dark mode</span> and other theming
-          abilities for free!
+          You get
+          <span class="dark" style="padding: 0 0.25em"> dark mode</span> and
+          other theming abilities for free!
         </li>
       </ul>
       <p>
-        Some common html elements are shown below, use the button at the top of the page to load
-        <a target="_blank" href="https://github.com/cbracco/html5-test-page">cbracco's html5 test page</a>
-        to show more.  Styling choices are fairly neutral but note that heading and paragraph elements
-        (but not yet list elements) use a consistent vertical rhythm of 1.75rem.
+        Some common html elements are shown below, use the button at the top of
+        the page to load
+        <a target="_blank" href="https://github.com/cbracco/html5-test-page"
+          >cbracco's html5 test page</a
+        >
+        to show more. Styling choices are fairly neutral but note that heading
+        and paragraph elements (but not yet list elements) use a consistent
+        vertical rhythm of 1.75rem.
       </p>
       <p>
-        Text with <em>em</em>, <strong>strong</strong>, <code>code</code>, <kbd>kbd</kbd> and
-        <mark>mark</mark>.
-        A <a href="#!">link with <em>em</em>, <strong>strong</strong>, <code>code</code>,
-          <kbd>kbd</kbd> and <mark>mark</mark></a>.
+        Text with <em>em</em>, <strong>strong</strong>, <code>code</code>,
+        <kbd>kbd</kbd> and <mark>mark</mark>. A
+        <a href="#!"
+          >link with <em>em</em>, <strong>strong</strong>, <code>code</code>,
+          <kbd>kbd</kbd> and <mark>mark</mark></a
+        >.
       </p>
       <h2><code>&lt;code></code> in a heading</h2>
       <p><code>&lt;code></code> in normal text.</p>
@@ -98,7 +129,9 @@
 
     <footer style="margin-top: 1rem; border-top: 1px solid #777" class="prose">
       <small>
-        <a target="_blank " href="https://github.com/pb-uk/prose-css-var">prose-css-var</a>
+        <a target="_blank " href="https://github.com/pb-uk/prose-css-var"
+          >prose-css-var</a
+        >
         is free software released into the public domain - see
         <a target="_blank " href="https://unlicense.org/">unlicense.org</a>.
       </small>
@@ -107,22 +140,22 @@
     <script>
       const loadContent = () => {
         // Load content from cbracco's test page.
-        fetch("https://cdn.jsdelivr.net/npm/html5-test-page")
+        fetch('https://cdn.jsdelivr.net/npm/html5-test-page')
           .then((response) => response.text())
           .then((html) => {
-            document.querySelector("#content").innerHTML =
+            document.querySelector('#content').innerHTML =
               html.match(/<body>(.*)<\/body>/s)[1];
           });
       };
 
       // Dark mode toggle.
       var toggleDark = () => {
-        document.documentElement.classList.toggle("dark");
+        document.documentElement.classList.toggle('dark');
       };
 
       // Document width utility
       const showWidth = () => {
-        document.querySelector("#show-width").innerHTML =
+        document.querySelector('#show-width').innerHTML =
           document.documentElement.clientWidth;
       };
 
