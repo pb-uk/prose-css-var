@@ -1,17 +1,19 @@
 {
   "name": "@pbuk/prose-css-var",
-  "version": "1.0.0-dev",
-  "description": "CSS 'prose' modifiers for putting things right after a hard reset.  Themable.",
+  "version": "1.0.0",
+  "description": "CSS 'prose' modifiers for putting things right after a hard reset.",
   "scripts": {
-    "lint:fix": "stylelint --fix \"src/**/*.css\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:fix": "stylelint --fix \"src/**/*.css\""
   },
+  "files": [
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pb-uk/prose-css-var.git"
   },
-  "author": "",
-  "license": "MIT",
+  "author": "pbuk (https://github.com/pb-uk/)",
+  "license": "Unlicense",
   "bugs": {
     "url": "https://github.com/pb-uk/prose-css-var/issues"
   },

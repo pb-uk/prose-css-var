@@ -1,9 +1,9 @@
-/**
- *
+/*! prose-css-var variables
+ *  https://github.com/pb-uk/prose-css-var#readme
+ *  Free software see https://unlicense.org.
  */
 
-/* --- Variables ------------------------------------------------------------- */
-.prose {
+ .prose {
   /* Main elements. */
   --heading-color: currentColor;
   --link-color: #55b;
@@ -27,6 +27,7 @@
   --button-hover-bg-color: #777;
 }
 
+/* Dark theme. */
 .dark .prose {
   --link-color: #bbf;
   --link-hover-color: #ddf;
