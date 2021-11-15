@@ -3,7 +3,7 @@
   "version": "1.0.0-dev",
   "description": "CSS 'prose' modifiers for putting things right after a hard reset.  Themable.",
   "scripts": {
-    "lint:fix": "prettier --write . && stylelint --fix \"src/**/*.css\"",
+    "lint:fix": "stylelint --fix \"src/**/*.css\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/pb-uk/prose-css-var#readme",
   "devDependencies": {
-    "prettier": "^2.4.1",
     "stylelint": "^14.1.0",
     "stylelint-config-standard": "^24.0.0"
   }
